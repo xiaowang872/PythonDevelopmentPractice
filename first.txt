@@ -1,0 +1,8 @@
+git status
+因为国内网络一直卡，索性使用 SSH 替代 HTTPS（推荐长期使用）
+git remote remove origin
+git remote add origin git@github.com:xiaowang872/PythonDevelopmentPractice.git
+首次推送本地分支到远程，未来只需输入 git push 或 git pull，Git 会自动关联到 origin/master，无需再指定分支。
+git push --set-upstream origin master
+git push -u origin master
+#  -u 是 --set-upstream 的简写
