@@ -1,4 +1,4 @@
-# 字符串
+# 字符串练习示例
 message = "小王" + "，" + '《Python开发》'
 result = '数学加法计算：' + str(10 + 20)
 print('字符串输出一', message)
