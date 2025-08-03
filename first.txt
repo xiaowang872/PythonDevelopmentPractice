@@ -6,3 +6,17 @@ git remote add origin git@github.com:xiaowang872/PythonDevelopmentPractice.git
 git push --set-upstream origin master
 git push -u origin master
 #  -u 是 --set-upstream 的简写
+遇到这个问题
+admin@rootwang MINGW64 /e/summer_study/python开发/programe/pythonProject (master)
+$ git remote -v
+origin  git@github.com:xiaowang872/PythonDevelopmentPractice.git (fetch)
+origin  git@github.com:xiaowang872/PythonDevelopmentPractice.git (push)
+
+我现在切回https
+git remote set-url origin https://github.com/xiaowang872/PythonDevelopmentPractice.git
+
+admin@rootwang MINGW64 /e/summer_study/python开发/programe/pythonProject (master)
+$ git remote -v
+origin  https://github.com/xiaowang872/PythonDevelopmentPractice.git (fetch)
+origin  https://github.com/xiaowang872/PythonDevelopmentPractice.git (push)
+后面还是重新生成ssh密钥
