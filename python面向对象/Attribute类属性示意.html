@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>内存结构示意图</title>
+  <style>
+    .container {
+      display: flex;
+      justify-content: space-around;
+      align-items: flex-start;
+    }
+
+    .box {
+      border: 1px solid #000;
+      padding: 10px;
+      margin: 10px;
+      width: 200px;
+    }
+
+    .title {
+      text-align: center;
+      font-weight: bold;
+      font-size: 18px;
+      margin-bottom: 10px;
+    }
+
+    .arrow {
+      margin-top: 50px;
+      align-self: center;
+    }
+  </style>
+</head>
+
+<body>
+  <h2>公共属性修改后</h2>
+  <div class="container">
+    <!-- 全局数据区 -->
+    <div class="box">
+      <div class="title" style="background-color: #fce4b3;">全局数据区</div>
+      <div>
+        <p>__PRESS = '人民邮电出版社'</p>
+      </div>
+    </div>
+
+    <div class="arrow">← 公共属性 →</div>
+
+    <!-- 栈内存 -->
+    <div class="box">
+      <div class="title" style="background-color: #c3e6cb;">栈内存</div>
+      <p>book_a</p>
+      <p>book_b</p>
+      <p>book_c</p>
+    </div>
+
+    <div class="arrow">← 堆内存引用 →</div>
+
+    <!-- 堆内存 -->
+    <div class="box">
+      <div class="title" style="background-color: #cfe2ff;">堆内存</div>
+      <p>__author = '李兴华'</p>
+      <p>__name = 'Python开发实战'</p>
+      <p>__author = '李兴华'</p>
+      <p>__name = 'Java程序设计开发实战'</p>
+      <p>__author = '李兴华'</p>
+      <p>__name = 'Java Web开发实战'</p>
+    </div>
+  </div>
+</body>
+
+</html>
