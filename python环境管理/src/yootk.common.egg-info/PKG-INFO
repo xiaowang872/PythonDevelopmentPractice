@@ -1,0 +1,15 @@
+Metadata-Version: 2.1
+Name: yootk.common
+Version: 0.0.1
+Summary: Get Yootk Information.
+Home-page: http://www.yootk.com
+Author: 李兴华
+Classifier: Environment :: Web Environment
+Classifier: Intended Audience :: Developers
+Classifier: License :: OSI Approved :: BSD License
+Classifier: Operating System :: OS Independent
+Classifier: Programming Language :: Python
+Classifier: Programming Language :: Python :: 2
+Classifier: Programming Language :: Python :: 3
+
+提供图书类以及消息处理函数
