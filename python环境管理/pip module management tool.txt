@@ -1,0 +1,29 @@
+# pip 模块管理工具
+pip list
+
+2、
+[notice] A new release of pip is available: 23.2.1 -> 23.3.2
+[notice] To update, run: python.exe -m pip install --upgrade pip
+
+python.exe -m pip install --upgrade pip
+
+3、
+pip config set global.index-url https://mirrors.aliyun.com/pypi/simple
+
+
+4、
+pip list --outdated
+
+5、
+pip search pandas
+
+6、
+pip install pip_search
+
+7、
+pip uninstall numpy -y
+
+
+
+
+
