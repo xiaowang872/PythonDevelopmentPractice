@@ -1,14 +1,14 @@
 # 静态方法
 
-# class Book: # 自定义消息类
-#     __press = 'YOOTK-沐言科技民间出版社' # 图书的公共属性
-#     @staticmethod # 明确的标注该方法为静态方法
-#     def press(): # 静态方法不受到对象的限制
-#         return Book.__press # 返回公共的信息
-# def main(): # 主函数
-#     print(Book.press()) # 类名称直接调用
-# if __name__ == '__main__':  # Python程序运行起点
-#     main() # 调用主函数
+class Book: # 自定义消息类
+    __press = 'YOOTK-沐言科技民间出版社' # 图书的公共属性
+    @staticmethod # 明确的标注该方法为静态方法
+    def press(): # 静态方法不受到对象的限制
+        return Book.__press # 返回公共的信息
+def main(): # 主函数
+    print(Book.press()) # 类名称直接调用
+if __name__ == '__main__':  # Python程序运行起点
+    main() # 调用主函数
 
 
 # PS E:\summer_study\python开发\programe\pythonProject> & D:/python_install_file/python.exe e:/summer_study/python开发/programe/pythonProject/装饰器/@staticmethod.py
@@ -46,8 +46,67 @@ if __name__ == '__main__':  # Python程序运行起点
 # 【实例化】类名称：<class '__main__.Book'>、可变参数：()、命名 参数：{}
 # None
 # PS E:\summer_study\python开发\programe\pythonProject>
+##########################################
+class Book: # 自定义消息类
+    @staticmethod # 按照原有的结构定义方法
+    # 这边不用self是因为实例不存在
+    def __new__(cls, **kwargs):
+        clazz = kwargs.get('clazz') # 获取要实例化的对象类型
+        if clazz == 'program': # 编程类的图书
+            return ProgramBook() # 返回指定的子类对象
+        elif clazz == 'math': # 数学类的图书
+            return MathBook() # 返回指定的子类对象
+        else: # 没有判断满足
+            return object.__new__(cls) # 实例化本类对象
+    # 当使用 print(obj) 或 str(obj) 时自动调用
+    def __str__(self):
+        return '【图书】YOOTK-小李的原创编程图书'
+class ProgramBook(Book): # 编程图书
+    def __str__(self):
+        return '【编程图书】Python开发实战'
+class MathBook(Book): # 数学图书
+    def __str__(self):
+        return '【数学图书】微积分'
+def main(): # 主函数
+    print(Book(clazz='program'))
+    print(Book(clazz='math'))
+    print(Book())
+if __name__ == '__main__':  # Python程序运行起点
+    main() # 调用主函数
 
+# PS E:\summer_study\python开发\programe\pythonProject> & D:/python_install_file/python.exe e:/summer_study/python开发/programe/pythonProject/tmp/abc.py
+# 【编程图书】Python开发实战
+# 【数学图书】微积分
+# 【图书】YOOTK-小李的原创编程图书
 
+##########################
+# 这个比较传统
+class Book: # 自定义消息类
+    def __str__(self):
+        return '【图书】YOOTK-小李的原创编程图书'
+class Factory: # 工厂类
+    @staticmethod
+    def get_instance(clazz=None):
+        if clazz == 'program': # 编程类的图书
+            return ProgramBook() # 返回指定的子类对象
+        elif clazz == 'math': # 数学类的图书
+            return MathBook() # 返回指定的子类对象
+        else: # 没有判断满足
+            return Book() # 实例化本类对象
+class ProgramBook(Book): # 编程图书
+    def __str__(self):
+        return '【编程图书】Python开发实战'
+class MathBook(Book): # 数学图书
+    def __str__(self):
+        return '【数学图书】微积分'
+def main(): # 主函数
+    print(Factory.get_instance(clazz='program'))
+    print(Factory.get_instance(clazz='math'))
+    print(Factory.get_instance())
+if __name__ == '__main__':  # Python程序运行起点
+    main() # 调用主函数
 
-
-
+# PS E:\summer_study\python开发\programe\pythonProject> & D:/python_install_file/python.exe e:/summer_study/python开发/programe/pythonProject/tmp/abc.py
+# 【编程图书】Python开发实战
+# 【数学图书】微积分
+# 【图书】YOOTK-小李的原创编程图书
