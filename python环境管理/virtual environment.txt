@@ -1,0 +1,22 @@
+虚拟环境
+
+1、
+cd H:\workspace\yootk
+h:
+
+
+2、
+pip install virtualenv
+
+3、
+virtualenv --version
+
+4、
+H:\workspace\yootk\venv\Scripts\activate.bat
+
+5、
+pip install pandas
+
+6、
+H:\workspace\yootk\venv\Scripts\deactivate.bat
+
